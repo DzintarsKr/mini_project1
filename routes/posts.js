@@ -2,12 +2,26 @@ import express from "express";
 
 const router = express.Router();
 
+// Create post
 router.post("/", (req, res) => {
-    res.json({ message: "Post created!" });
+
+    const { title, content } = req.body;
+
+    res.json({
+        message: "Post created successfully",
+        post: {
+            title,
+            content
+        }
+    });
 });
 
+// Get posts
 router.get("/", (req, res) => {
-    res.json({ message: "Posts route works!" });
+
+    res.json({
+        message: "Posts received successfully"
+    });
 });
 
 export default router;
