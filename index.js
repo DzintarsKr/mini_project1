@@ -3,12 +3,14 @@ import express from "express";
 
 import authRouter from "./routes/auth.js";
 import postRouter from "./routes/posts.js";
+import connectDB from "./db/index.js";
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3333;
 
+// Middleware
 app.use(express.json());
 
 // Главный маршрут
@@ -21,6 +23,18 @@ app.use("/auth", authRouter);
 app.use("/posts", postRouter);
 
 // Start server
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
-});
+const startServer = async () => {
+    try {
+        await connectDB();
+
+        app.listen(port, () => {
+            console.log(`Server is running at http://localhost:${port}`);
+        });
+
+    } catch (error) {
+        console.error("Failed to start server:", error);
+        process.exit(1);
+    }
+};
+
+startServer();
