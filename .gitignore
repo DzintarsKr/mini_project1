@@ -1,0 +1,31 @@
+# Зависимости (библиотеки)
+node_modules/
+jspm_packages/
+
+# Конфиденциальные данные и файлы окружения
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Логи (журналы ошибок)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# Системные файлы операционных систем
+.DS_Store
+Thumbs.db
+
+# Конфигурации сред разработки (IDE) и редакторов
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
